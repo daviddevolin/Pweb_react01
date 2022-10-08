@@ -4,8 +4,9 @@
 
    <head>
 
-      <title>ReactUm</title>      
-
+        <title>ReactUm</title>      
+        <link rel="stylesheet" href="style.css">
+    
    </head>
 
    <body>
@@ -14,6 +15,31 @@
         <script src="libs/react-dom.js"></script>
         <script src="libs/babel.js"></script>
         <script type="text/babel">
+            const cervejas = [
+            {
+            id: 0,
+            name: 'Heineken',
+            alcohol: '10%',
+            ibu: '30',
+            style: 'Red Ale',
+            },
+            {
+            id: 1,
+            name: 'Guiness',
+            alcohol: '20%',
+            ibu: '22',
+            style: 'English IPA',
+            },
+            {
+            id: 2,
+            name: 'Desesperados',
+            alcohol: '5%',
+            ibu: '21',
+            style: 'Imperial Stout',
+            },
+            { id: 3, name: 'Becks', alcohol: '30%', ibu: '43', style: 'Cream Ale' },
+        ];
+
             function TabelaBebidas(){
                 return(
                     <div id="app">
@@ -27,9 +53,9 @@
                         </thead>
 
                         <tbody>
-
-                            <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
-
+                            {cervejas.map((item,indice) => 
+                                {return <tr key = {indice}><td>{item.name}</td> <td>{item.style}</td></tr>}
+                                 )}
                         </tbody>
 
                     </table>
